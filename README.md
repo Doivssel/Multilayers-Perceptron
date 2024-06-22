@@ -1,8 +1,8 @@
 # Perceptron
 
-What I present here is a small package that may be used to create multilayers perceptrons. Before explaining how to use this package let's look at the math behind to understand how to construct a perceptron.
+What I present here is a small package that may be used to create multilayers perceptrons. Even if multilayers perceptron are not that useful due to their training time and the number of hyperparameters that cannot be learned (number of neurons in hidden layers, number of layers, learning rate...). But this is still interesting to learn as it is the basic of neural networks.
 
-Let's denote N the number of layers and $U_1,.....,U_N$ the number of neurons per layer (ex: $U_1$ is the number of neurons on the first layer)
+So let's get into it, here is a quick explanation of the math behind it. Let's denote N the number of layers and $U_1,.....,U_N$ the number of neurons per layer (ex: $U_1$ is the number of neurons on the first layer)
 
 Now we define a list for the bias  as follow $\mathbf{B} =$ { $\mathbf{b}^{(2)}, \mathbf{b}^{(3)}, \ldots, \mathbf{b}^{(N)} $} with
 ```math 
