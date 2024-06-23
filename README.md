@@ -38,9 +38,7 @@ Now we want our model to learn the weight and bias. For that we use backward pro
 
 We begin by computing the loss of the output layer by computing $\delta^{(N)} = \nabla_{\mathbf{A}^{(N)}} \mathcal{L} \odot \sigma^{(N)}{'}(\mathbf{Z}^{(N)})$. 
 
-We then compute recursively the error by going backward as $\delta^{(l)} = (\mathbf{W}^{(l+1)})^T \delta^{(l+1)} \odot \sigma^{(l)}{'}(\mathbf{z}^{(l)})$ (we do not compute it for the input layer).
-
-Where $\odot$ is the Hadamard product.
+We then compute recursively the error by going backward as $\delta^{(l)} = (\mathbf{W}^{(l+1)})^T \delta^{(l+1)} \odot \sigma^{(l)}{'}(\mathbf{z}^{(l)})$ (we do not compute it for the input layer). Where $\odot$ is the Hadamard product and $\sigma^{(l)}{'}$ is the derivative the activation function of the l layer.
 
 ## Gradient descent
 
@@ -54,6 +52,11 @@ $$\mathbf{W}^{(l)} = \mathbf{W}^{(l)} - \eta \nabla_{\mathbf{W}^{(l)}}$$
 $$\mathbf{b}^{(l)} = \mathbf{b}^{(l)} - \eta \nabla_{\mathbf{b}^{(l)}}$$
 
 with $\nabla_{\mathbf{W}^{(l)}} = \delta^{(l)} (\mathbf{a}^{(l-1)})^T$ and $\nabla_{\mathbf{b}^{(l)}} = \delta^{(l)}$. Most of these results can be obtained by taking the partial derivative of the loss under the biases/weights and then using chain rule.
+
+## Shortcoming
+
+Multilayers perceptron work well enough for some easy task such as solving the Xor problem. But for more difficult problem we quickly encouter many difficulties mainly due to the the parameters that cannot be learned such as the learning rate, the number of layer, the number of neurons or on how to initialise the biases and weights. Even the slighest change may make our neural network useless. It may be interesting to use other model for more difficult tasks. 
+
 
 ## Code
 
