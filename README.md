@@ -63,6 +63,6 @@ I've given a simple example on the famous problem of the XOR. The neural net tra
 
 ## Code
 
-Concerning the code there is not much to say I've implemented the above parts. To use it just look at the code I've annoted it.
+Concerning the code there is not much to say I've implemented the above parts. To use it just look at the code I've commented it quite well.
 
 
