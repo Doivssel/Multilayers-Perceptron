@@ -57,9 +57,12 @@ with $\nabla_{\mathbf{W}^{(l)}} = \delta^{(l)} (\mathbf{a}^{(l-1)})^T$ and $\nab
 
 Multilayers perceptron work well enough for some easy task such as solving the Xor problem. But for more difficult problem we quickly encouter many difficulties mainly due to the the parameters that cannot be learned such as the learning rate, the number of layer, the number of neurons or on how to initialise the biases and weights. Even the slighest change may make our neural network useless. It may be interesting to use other model for more difficult tasks. 
 
+## A simple example
+
+I've given a simple example on the famous problem of the XOR. The neural net trained was able to perform perfectly on this simple problem.
 
 ## Code
 
-COncerning the code there is not much to say I've implemented the above parts. To use it just look at the code I've annoted it.
+Concerning the code there is not much to say I've implemented the above parts. To use it just look at the code I've annoted it.
 
 
