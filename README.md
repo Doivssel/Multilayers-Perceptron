@@ -2,7 +2,7 @@
 
 ## Introduction
 
-What I present here is a small package that may be used to create multilayers perceptrons. This is mainly for learning purpose, if you want to implement one it may be better to use some of the well known library such as Keras, Pytorch or Scikit.
+This a small algorithm that may be used to construct and train multilayers perceptrons. This is mainly for learning purpose, if you want to implement one it may be better to use some of the well known library such as Keras, Pytorch or Scikit.
 
 So what's a multilayer perceptron ? It is one of the most basic neural network, it has N layers, the first one being the input layer and the last one being the output layer. Each layer is composed of a certain number of neurons connected to all the other neurons of the next layer if there is any. Each of these connections has a weight that translate the importance of the connection between two neurons. The neurons themselves are a computing unit where they receive signals of the before layer multiplied by the weight of the concerned neurons plus the bias of the neuron receiving signals. The neurons then send off theses signals after passing them through an activation function (sigmoid,tanh,reLu...) to the next layer, until the output layer is reached. In the end the goal is to put an input signal and let the perceptron compute the right answer. To do that it learn through multiple inputs the right biases and weights through an algorithm called gradient descent. Whose goal is to minimise the error between the output of our perceptron and the expected value. 
 
