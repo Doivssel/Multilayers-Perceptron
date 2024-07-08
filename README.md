@@ -4,7 +4,7 @@
 
 What I present here is a small package that may be used to create multilayers perceptrons. This is mainly for learning purpose, if you want to implement one it may be better to use some of the well known library such as Keras, Pytorch or Scikit.
 
-So what's a multilayer perceptron ? It is a neural network with N layers, the first one being the input layer and the last one being the output layer. Each layer is composed of a certain number of neurons connected to all the other neurons of the next layer if there is any. Each of these connections has a weight that translate the importance of the connection between two neurons. The neurons themselves are a computing unit where they receive signals of the before layer multiplied by the weight of the concerned neurons plus the bias of the neuron receiving signals. The neurons then send off theses signals after passing them through an activation function (sigmoid,tanh,reLu...) to the next layer, until the output layer is reached. In the end the goal is to put an input signal and let the perceptron compute the right answer. To do that it learn through multiple inputs the right biases and weights through an algorithm called gradient descent. Whose goal is to minimise the error between the output of our perceptron and the expected value. As such this version of the perceptron fall under the supervised learning category.
+So what's a multilayer perceptron ? It is one of the most basic neural network, it has N layers, the first one being the input layer and the last one being the output layer. Each layer is composed of a certain number of neurons connected to all the other neurons of the next layer if there is any. Each of these connections has a weight that translate the importance of the connection between two neurons. The neurons themselves are a computing unit where they receive signals of the before layer multiplied by the weight of the concerned neurons plus the bias of the neuron receiving signals. The neurons then send off theses signals after passing them through an activation function (sigmoid,tanh,reLu...) to the next layer, until the output layer is reached. In the end the goal is to put an input signal and let the perceptron compute the right answer. To do that it learn through multiple inputs the right biases and weights through an algorithm called gradient descent. Whose goal is to minimise the error between the output of our perceptron and the expected value. 
 
 ## Initialisation
 
@@ -30,7 +30,7 @@ We then can compute the propagated signals on each layers, we have the following
 ```math 
 \mathbf{A^{(1)}}=\begin{bmatrix}a^{(1)}_1 \\a^{(1)}_2 \\\vdots \\a^{(1)}_{U_1}\end{bmatrix}
 ```
-from this we can get the signals of our second layers by computing $\mathbf{Z^{(2)}}=\mathbf{W}^{(2)}\mathbf{A^{(1)}}$ and by applying the activation function of the second layer $\sigma^{(2)}$ to $\mathbf{Z^{(2)}}$ as such we have $\mathbf{A^{(2)}}=\sigma^{(2)}(\mathbf{Z^{(2)}})$. From this it easy to see that we can define define recursively the signals for the l layer as  $\mathbf{A^{(l)}}=\sigma^{(l)}(\mathbf{Z^{(l)}})$ with $\mathbf{Z^{(l)}}=\mathbf{W}^{(l)}\mathbf{A^{(l-1)}}$
+from this we can get the signals of our second layers by computing $\mathbf{Z^{(2)}}=\mathbf{W}^{(2)}\mathbf{A^{(1)}}$ and by applying the activation function of the second layer $\sigma^{(2)}$ to $\mathbf{Z^{(2)}}$ as such we have $\mathbf{A^{(2)}}=\sigma^{(2)}(\mathbf{Z^{(2)}})$. By repeating this process it easy to see that we can define define recursively the signals for the l layer as  $\mathbf{A^{(l)}}=\sigma^{(l)}(\mathbf{Z^{(l)}})$ with $\mathbf{Z^{(l)}}=\mathbf{W}^{(l)}\mathbf{A^{(l-1)}}$
 
 ## Backward propagation
 
@@ -38,7 +38,7 @@ Now we want our model to learn the weight and bias. For that we use backward pro
 
 We begin by computing the loss of the output layer by computing $\delta^{(N)} = \nabla_{\mathbf{A}^{(N)}} \mathcal{L} \odot \sigma^{(N)}{'}(\mathbf{Z}^{(N)})$. 
 
-We then compute recursively the error by going backward as $\delta^{(l)} = (\mathbf{W}^{(l+1)})^T \delta^{(l+1)} \odot \sigma^{(l)}{'}(\mathbf{z}^{(l)})$ (we do not compute it for the input layer). Where $\odot$ is the Hadamard product and $\sigma^{(l)}{'}$ is the derivative the activation function of the l layer.
+We then compute recursively the error by going backward as $\delta^{(l)} = (\mathbf{W}^{(l+1)})^T \delta^{(l+1)} \odot \sigma^{(l)}{'}(\mathbf{z}^{(l)})$ (we do not compute it for the input layer). Where $\odot$ is the Hadamard product and $\sigma^{(l)}{'}$ is the derivative the activation function of the l layer. These result can be obtained by using chain rule.
 
 ## Gradient descent
 
